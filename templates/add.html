@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+{% block title %}Add Movie{% endblock %}
+
+{% block content %}
+<div class="content mt-4 mb-4">
+    <div class="text-center">
+        <h3>Add a movie</h3>
+        <form method="POST" action="{{ url_for('add')}}" novalidate>
+            <p>Data source: The Movie Database (TMDB)</p> {{ form.title }}
+            {% for err in form.title.errors %}
+                {% for error in form.title.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+            <div class="mt-3">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

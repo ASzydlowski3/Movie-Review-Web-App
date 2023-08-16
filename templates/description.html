@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}My Top Favourite Movies{% endblock %}
+{% block content %}
+<div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold">{{movie.title}}</h1>
+
+    <p class="lead mb-4">{{movie.rating}} ⭐</p>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">{{movie.description}}</p>
+        <h5 class="fw-bolder">My review:</h5>
+        <p class="lead mb-4">{{movie.review}}</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+            <a type="button" class="btn btn-outline-success btn-lg px-4 me-sm-3"
+               href="{{ url_for('edit', id=movie.id) }}">Update</a>
+            <a class="btn btn-outline-danger btn-lg px-4" href="{{ url_for('delete', id=movie.id) }}">Delete</a>
+        </div>
+    </div>
+    <div class="overflow-hidden" style="max-height: 50vh;">
+        <iframe src="{{movie.trailer_url}}" width="853" height="480" frameborder="0" allowfullscreen></iframe>
+
+
+    </div>
+</div>
+{% endblock %}

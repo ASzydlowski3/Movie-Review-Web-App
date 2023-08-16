@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}My Favourite Movies{% endblock %}
+{% block content %}
+
+<!-- Section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {% for movie in movies %}
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <a href="{{ url_for('description', id=movie.id) }} ">
+                        <img class="card-img-top" src="{{movie.img_url}}" alt="...">
+                    </a>
+
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{movie.title}}</h5>
+                            <!-- Product year-->
+                            <h6>{{movie.year}}</h6>
+                            <!-- Product rating-->
+                            <h6 class="fw-bolder">{{movie.rating}} ⭐</h6>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <a class="btn btn-outline-success mt-auto mr-2" href="{{ url_for('edit', id=movie.id) }}">Update</a>
+                            <a class="btn btn-outline-danger mt-auto"
+                               href="{{ url_for('delete', id=movie.id) }}">Delete</a>
+                            <div class="form-group mt-2">
+                                <a class="btn btn-primary mt-auto" href="{{ url_for('description', id=movie.id) }}">More
+                                    Info</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
