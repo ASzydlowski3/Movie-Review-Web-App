@@ -10,15 +10,15 @@
     <form method="POST" action="{{ url_for('edit') }}" novalidate>
         {{ forms.csrf_token }}
 
-        <div class="form-group mb-3">
+        <div class="form-group mb-1">
             {{ forms.rating.label }} <br> {{ forms.rating }}
         </div>
 
-        <div class="form-group mb-3">
+        <div class="form-group mb-1">
             {{ forms.review.label }} <br> {{ forms.review }}
         </div>
 
-        <div class="mb-3">
+        <div class="mb-1">
             {{ forms.submit(class="btn btn-primary") }}
         </div>
 

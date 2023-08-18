@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}My Top Favourite Movies{% endblock %}
+{% block content %}
+<div class="py-5 text-center">
+    <h2>Register as a new user</h2>
+    <p class="lead">Please enter your information</p>
+    <form method="POST" action="{{ url_for('register') }}" novalidate>
+        {{ forms.csrf_token }}
+        <div class="form-group mb-1">
+            {{ forms.email.label }} <br> {{ forms.email }}
+            {% for error in forms.email.errors %}
+            <p class="form-text text-danger">{{ error }}</p>
+            {% endfor %}
+        </div>
+        <div class="form-group mb-1">
+            {{ forms.password.label }} <br> {{ forms.password }}
+            {% for error in forms.password.errors %}
+            <p class="form-text text-danger">{{ error }}</p>
+            {% endfor %}
+        </div>
+
+        <div class="form-group mb-1">
+            {{ forms.name.label }} <br> {{ forms.name }}
+            {% for error in forms.name.errors %}
+            <p class="form-text text-danger">{{ error }}</p>
+            {% endfor %}
+        </div>
+
+        <div class="mb-1">
+            {{ forms.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

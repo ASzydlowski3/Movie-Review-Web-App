@@ -7,14 +7,14 @@
     <div class="text-center">
         <h3>Add a movie</h3>
         <form method="POST" action="{{ url_for('add')}}" novalidate>
-            <p>Data source: The Movie Database (TMDB)</p> {{ form.title }}
-            {% for err in form.title.errors %}
-                {% for error in form.title.errors %}
+            <p>Data source: The Movie Database (TMDB)</p> {{ forms.title }}
+            {% for err in forms.title.errors %}
+                {% for error in forms.title.errors %}
                 <p>{{ error }}</p>
                 {% endfor %}
             {% endfor %}
             <div class="mt-3">
-                {{ form.submit(class="btn btn-primary") }}
+                {{ forms.submit(class="btn btn-primary") }}
             </div>
         </form>
     </div>

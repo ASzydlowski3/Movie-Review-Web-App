@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}My Top Favourite Movies{% endblock %}
+{% block content %}
+<div class="py-5 text-center">
+    <h2>Login as an existing user</h2>
+    <p class="lead">Please enter your information</p>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+        <p class="form-text text-danger">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form method="POST" action="{{ url_for('login') }}" novalidate>
+        {{ forms.csrf_token }}
+
+        <div class="form-group mb-1">
+            {{ forms.email.label }} <br> {{ forms.email }}
+            {% for error in forms.email.errors %}
+            <p class="form-text text-danger">{{ error }}</p>
+            {% endfor %}
+        </div>
+
+        <div class="form-group mb-1">
+            {{ forms.password.label }} <br> {{ forms.password }}
+            {% for error in forms.password.errors %}
+            <p class="form-text text-danger">{{ error }}</p>
+            {% endfor %}
+        </div>
+
+        <div class="mb-1">
+            {{ forms.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

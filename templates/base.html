@@ -20,14 +20,28 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="{{url_for('home')}}">🎥 My Favourite Movies</a>
+        {% if current_user.is_authenticated %}
+        <a href="{{url_for('add')}}" class="link-secondary">+ add new movie</a>
+        {% endif %}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <a href="{{ url_for('add') }}" class="btn btn-primary ms-auto">+ Add new movie</a>
+            {% if current_user.is_authenticated %}
+            <a href="{{ url_for('logout') }}" class="btn btn-primary ms-auto">Log out</a>
+            {% else %}
+            <!-- Login and Register Buttons -->
+            <div class="d-flex ms-auto">
+                <a href="{{ url_for('login') }}" class="btn btn-primary me-2">Login</a>
+                <a href="{{ url_for('register') }}" class="btn btn-primary">Register</a>
+            </div>
+            {% endif %}
         </div>
     </div>
 </nav>
+
+
 <!-- Header-->
 
 <header class="bg-dark py-5">
