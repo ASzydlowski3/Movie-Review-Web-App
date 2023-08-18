@@ -11,7 +11,6 @@ import os
 
 
 db = SQLAlchemy()
-print(os.urandom(12))
 app = Flask(__name__)
 ########INSERT YOUR SECRET KEY########
 app.config['SECRET_KEY'] = f'{os.urandom(12)}'
@@ -123,10 +122,8 @@ def login():
                 user = db.session.execute(db.select(User).where(User.email == email)).scalar()
                 if check_password_hash(user.password, password):
                     login_user(user)
-                    print(current_user.is_authenticated)
                     return redirect("/")
             except AttributeError:
-                print(current_user.is_authenticated)
                 return redirect("/")
     return render_template("login.html", forms=forms)
 
@@ -189,7 +186,6 @@ def add():
                     potential_duplicates = db.session.execute(db.select(Movie).where(Movie.movie_id == movie_id)).scalars()
                     for title in potential_duplicates:
                         if title.movie_id == movie_id and title.owner_id == int(current_user.get_id()):
-                            print('duplikat')
                             return redirect('/')
 
                 ########INSERT YOUR TMDB API KEY TOKEN########
