@@ -1,6 +1,7 @@
 Movie Review Web App
 
 Welcome to the Movie Review Web App, a lask-based web application designed for movie enthusiasts to manage and review their favorite movies. This app leverages modern technologies and APIs to provide a seamless movie browsing and management experience.
+[LIVE DEMO](http://aszydlowski3.ddns.net:5000)
 
 Technologies Used
 
@@ -15,7 +16,7 @@ Technologies Used
     Environment Variables: API keys and tokens are stored as environment variables to keep sensitive information secure.
 
 Features
-
+	RESTful API with ability to access all features
     View a list of movies ordered by rating.
     Add new movies to the collection using TMDb API integration.
 	User authentication to provide a personalized experience for each user. Users can register, log in, and log out to access their own collection of favorite movies and reviews.
