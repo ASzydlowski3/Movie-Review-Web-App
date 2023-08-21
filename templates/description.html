@@ -15,10 +15,10 @@
             <a class="btn btn-outline-danger btn-lg px-4" href="{{ url_for('delete', id=movie.id) }}">Delete</a>
         </div>
     </div>
+    {%if movie.trailer_url %}
     <div class="overflow-hidden" style="max-height: 50vh;">
         <iframe src="{{movie.trailer_url}}" width="853" height="480" frameborder="0" allowfullscreen></iframe>
-
-
     </div>
+    {% endif %}
 </div>
 {% endblock %}

@@ -13,6 +13,13 @@
                 <p>{{ error }}</p>
                 {% endfor %}
             {% endfor %}
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <p class="form-text text-danger">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <div class="mt-3">
                 {{ forms.submit(class="btn btn-primary") }}
             </div>
