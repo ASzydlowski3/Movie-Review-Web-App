@@ -1,3 +1,5 @@
+Goal of the project was to familiarize myself with Flask framework, description below.
+
 Movie Review Web App
 [LIVE DEMO](http://aszydlowski3.ddns.net:5000)
 
