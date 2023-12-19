@@ -1,7 +1,6 @@
 Goal of the project was to familiarize myself with Flask framework, description below.
 
 Movie Review Web App
-[LIVE DEMO](http://aszydlowski3.ddns.net:5000)
 
 Welcome to the Movie Review Web App, a flask-based web application designed for movie enthusiasts to manage and review their favorite movies. This app leverages modern technologies and APIs to provide a seamless movie browsing and management experience.
 
